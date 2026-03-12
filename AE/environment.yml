@@ -1,0 +1,10 @@
+name: ae
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pytorch=2.5
+  - torchvision=0.20
+  - matplotlib
+  - pip

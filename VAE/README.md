@@ -75,6 +75,8 @@ After training:
 python sample.py --checkpoint outputs/checkpoints/vae_last.pt --num-samples 64
 ```
 
+This samples latent vectors from the standard normal prior and passes them through the decoder, so it is the VAE counterpart to the AE normal-noise decode check.
+
 If you prefer not to activate the environment in the shell, you can run the interpreter directly:
 
 ```bash
@@ -88,7 +90,7 @@ Training artifacts are written to `outputs/`:
 - `outputs/checkpoints/`: model checkpoints
 - `outputs/plots/`: loss history JSON and loss curve figure
 - `outputs/reconstructions/`: side-by-side input and reconstruction grids
-- `outputs/samples/`: random samples from the latent prior
+- `outputs/samples/`: decoder outputs from standard normal latent samples
 
 ## What To Inspect First
 

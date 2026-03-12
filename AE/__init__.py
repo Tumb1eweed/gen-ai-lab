@@ -1,0 +1,1 @@
+"""Minimal convolutional autoencoder baseline for CIFAR-10."""

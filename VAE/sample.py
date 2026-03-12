@@ -10,11 +10,11 @@ from utils import configure_runtime, describe_device, ensure_dirs, resolve_devic
 
 
 def build_arg_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Sample images from a trained VAE decoder.")
+    parser = argparse.ArgumentParser(description="Decode standard normal latent noise with a trained VAE decoder.")
     parser.add_argument("--checkpoint", type=Path, required=True)
     parser.add_argument("--num-samples", type=int, default=64)
     parser.add_argument("--device", type=str, default="auto", choices=["auto", "cuda", "cpu"])
-    parser.add_argument("--output", type=Path, default=Path("outputs/samples/manual_sample.png"))
+    parser.add_argument("--output", type=Path, default=Path("outputs/samples/normal_noise_sample.png"))
     return parser
 
 
@@ -37,7 +37,7 @@ def main() -> None:
         samples = model.sample(num_samples=args.num_samples, device=device)
         save_image_grid(samples.cpu(), args.output, nrow=8)
 
-    print(f"saved samples to {args.output}")
+    print(f"saved normal-noise decoder samples to {args.output}")
 
 
 if __name__ == "__main__":

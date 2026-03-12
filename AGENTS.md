@@ -4,29 +4,31 @@
 
 This repository is a hands-on learning lab for generative AI. The learning and implementation order is:
 
-1. VAE
-2. CVAE
-3. VQ-VAE
-4. Diffusion by U-Net
-5. DiT
+1. AE
+2. VAE
+3. CVAE
+4. VQ-VAE
+5. Diffusion by U-Net
+6. DiT
 
 The repository should evolve stage by stage. Do not skip ahead to later models before the current stage is stable.
 
 ## Current Active Stage
 
-The active stage is VAE.
+The active stage is AE.
 
-The current goal is not image quality or advanced optimization. The current goal is to make the full VAE training loop on CIFAR-10 understandable and runnable.
+The current goal is not image quality or advanced optimization. The current goal is to make the full autoencoder training loop on CIFAR-10 understandable and runnable.
 
 Agents working in this repository should prioritize these questions:
 
-1. How the encoder, latent distribution, reparameterization, and decoder fit together
-2. Why the VAE objective contains both reconstruction loss and KL divergence
-3. How to inspect reconstructions and random samples during training
+1. How the encoder, latent vector, and decoder fit together in a deterministic autoencoder
+2. Why reconstruction-only training is a useful baseline before introducing probabilistic latents and KL regularization in VAE
+3. How to inspect reconstructions and validation behavior during training
 
 ## Current Status
 
-- VAE: in progress
+- AE: in progress
+- VAE: in progress after AE is stable
 - CVAE: not started
 - VQ-VAE: not started
 - Diffusion by U-Net: not started
@@ -34,17 +36,17 @@ Agents working in this repository should prioritize these questions:
 
 ## Implementation Priorities
 
-When working on the VAE stage, prefer minimal and readable solutions.
+When working on the AE stage, prefer minimal and readable solutions.
 
 1. Keep the implementation focused on CIFAR-10.
-2. Prefer a small convolutional VAE over a larger or more abstract architecture.
-3. Log total loss, reconstruction loss, and KL loss separately.
-4. Save checkpoints, reconstructions, and random samples during training.
+2. Prefer a small convolutional autoencoder over a larger or more abstract architecture.
+3. Keep the objective focused on reconstruction loss and report train and validation loss clearly.
+4. Save checkpoints, reconstructions, and loss curves during training.
 5. Favor simple scripts and explicit code over premature abstractions.
 
 ## What To Avoid Right Now
 
-Until the VAE stage is stable, avoid introducing:
+Until the AE stage is stable, avoid introducing:
 
 1. multi-model frameworks
 2. large-scale refactors
@@ -54,13 +56,13 @@ Until the VAE stage is stable, avoid introducing:
 
 ## Expected Workflow
 
-For VAE work, the recommended sequence is:
+For AE work, the recommended sequence is:
 
-1. Read the local VAE documentation.
+1. Read the local AE documentation.
 2. Run a small training job.
-3. Inspect reconstructions and random samples.
-4. Adjust a small number of core hyperparameters such as latent dimension, beta, and learning rate.
-5. Only move to the next model family after the VAE pipeline is stable and understandable.
+3. Inspect validation reconstructions and loss curves.
+4. Adjust a small number of core hyperparameters such as latent dimension and learning rate.
+5. Compare the deterministic autoencoder behavior with the later VAE stage before moving on.
 
 ## Repository Convention
 

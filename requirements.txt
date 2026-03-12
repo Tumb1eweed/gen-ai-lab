@@ -1,0 +1,6 @@
+# Recommended Python version: 3.10
+# For CUDA-enabled PyTorch builds, install following the official PyTorch guide if needed.
+
+torch>=2.5,<2.6
+torchvision>=0.20,<0.21
+matplotlib>=3.8,<4
